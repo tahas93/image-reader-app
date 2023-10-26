@@ -1,1 +1,1 @@
-# image-reader-app
+# image-reader-vuejs

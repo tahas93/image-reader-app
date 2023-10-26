@@ -1,0 +1,76 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: flex;
+    padding: 0 2rem;
+  }
+}
+
+.dropzone {
+  height: fit-content;
+  min-height: 200px;
+  max-height: 400px;
+  width: 400px;
+  background: #fdfdfd;
+  border-radius: 5px;
+  border: 2px dashed #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: inherit;
+  min-height: 200px;
+  max-height: 400px;
+  cursor: pointer;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 1em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  margin: 20px;
+  padding: 1.2em 2.4em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}

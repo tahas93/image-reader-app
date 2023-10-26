@@ -5,7 +5,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  color: #2c3e50;
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
   font-weight: normal;
@@ -28,9 +28,8 @@
   min-height: 200px;
   max-height: 400px;
   width: 400px;
-  background: #fdfdfd;
   border-radius: 5px;
-  border: 2px dashed #000;
+  border: 2px dashed var(--color-text);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,4 +72,55 @@ button {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--color-text);
+  height: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.progress-bar span {
+  height: 100%;
+  border-radius: 10px;
+  background-color: #00a34f;
+}
+
+.result-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  border-radius: 5px;
+  border: 2px dashed var(--color-text);
+  color: var(--color-text);
+}
+
+.result {
+  width: 100%;
+}
+
+.result pre {
+  max-height: 200px;
+  overflow: auto;
+}
+
+.result h3 {
+  color: #ff0000;
+  margin-top: 1rem;
+}
+
+.result:last-child pre {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }

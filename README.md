@@ -1,6 +1,6 @@
 # image-reader-app
 
-<img src="https://i.ibb.co/bXctM4h/Screen-Shot-2023-10-26-at-9-12-22-PM.png" alt="screen-1" />
+<img src="https://i.ibb.co/C0btsLy/Screen-Shot-2023-10-30-at-9-00-56-PM.png" alt="screen-1" />
 
 ### About
 

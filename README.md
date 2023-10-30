@@ -12,6 +12,8 @@ First project of building a tool to extract text from an image in VueJs framewor
 - Tesseract JS
 - Vite Js
 - VS Code editor
+- Vue-ChartJS
+- ChartJs
 
 ### Clone This Repo
 

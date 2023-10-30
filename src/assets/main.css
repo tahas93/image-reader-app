@@ -95,7 +95,7 @@ button {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin: 1rem 0px;
   border-radius: 5px;
   border: 2px dashed var(--color-text);
   color: var(--color-text);
@@ -123,4 +123,12 @@ ul {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.chart-container {
+  margin-top: 1rem;
+  border: 2px dashed var(--color-text);
+  border-radius: 5px;
+  display: flex;
+  gap: 4rem;
 }

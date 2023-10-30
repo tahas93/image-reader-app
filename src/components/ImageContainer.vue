@@ -7,7 +7,7 @@
       <input id="file-input" type="file" accept="image/png, image/jpeg" @change="handleFileChange($event.target)"
         required />
       <h2 v-if="!preview" for="file-input">Click or Drag N Drop Image</h2>
-      <img ref="img" :src="preview" />
+      <img v-if="preview" ref="img" :src="preview" />
     </div>
 
     <div v-if="!load && !showResult" class="button-container">

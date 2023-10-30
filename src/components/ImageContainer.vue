@@ -1,7 +1,7 @@
 <template>
   <h1>Image Reader</h1>
 
-  <div v-if="!reset" class="inner-wrapper">
+  <div v-if="!resetBtn" class="inner-wrapper">
     <div class="dropzone" @dragover.prevent @dragenter.prevent @dragstart.prevent
       @drop.prevent="handleFileChange($event.dataTransfer)">
       <input id="file-input" type="file" accept="image/png, image/jpeg" @change="handleFileChange($event.target)"
@@ -31,22 +31,19 @@
         <h3>Words Count:</h3>
         <pre>{{ wordCount }}</pre>
       </div>
-
-      <div class="result">
-        <h3>Most Used Word:</h3>
-        <ul>
-          <li v-for="ele in frequency" :key="ele">{{ ele }}</li>
-        </ul>
-      </div>
     </div>
 
-    <div class="button-container">
+    <ChartContainer v-if="showResult" :chartData="chartData" />
+
+    <div class=" button-container">
       <button type="button" @click="close">Reset</button>
     </div>
   </div>
 </template>
 
 <script setup>
+import ChartContainer from './ChartContainer.vue'
+import backgrounds from './colors.js'
 import { ref } from 'vue'
 import { createWorker, PSM, OEM } from 'tesseract.js'
 
@@ -57,9 +54,10 @@ const img = ref(null)
 const result = ref('')
 const showResult = ref(false)
 const progress = ref('')
-const reset = ref(false)
+const resetBtn = ref(false)
 const wordCount = ref('')
-const frequency = ref([])
+const dataObj = ref([])
+const chartData = ref({})
 
 const handleFileChange = function (event) {
   this.file = event.files[0]
@@ -99,11 +97,9 @@ const read = async function () {
     wordCount.value = wordsLength
     result.value = data.text
     showResult.value = true
-    reset.value = true
-    const listOfWords = [];
+    resetBtn.value = true
+    const listOfWords = []
     const count = {}
-
-
 
     for (let i = 0; i < wordsLength; i++) {
       listOfWords.push(listOfWordsObj[i].text)
@@ -120,9 +116,23 @@ const read = async function () {
     console.log('count', count)
     const keys = Object.keys(count);
     for (const ele of keys) {
-      if (count[ele] > 1) {
-        frequency.value.push(`${ele} : ${count[ele]}`)
+      if (count[ele] > 2) {
+        const temp = Object.assign({ label: ele, count: count[ele] })
+        dataObj.value.push(temp)
       }
+    }
+
+    chartData.value = {
+      labels: dataObj.value.map(i => i.label),
+      datasets: [
+        {
+          label: '',
+          borderColor: 'rgb(75, 192, 192)',
+          data: dataObj.value.map(i => i.count),
+          backgroundColor: backgrounds,
+          borderWidth: 1,
+        }
+      ]
     }
   }
 }
@@ -135,6 +145,6 @@ const close = function () {
   result.value = ''
   showResult.value = false
   progress.value = ''
-  reset.value = false
+  resetBtn.value = false
 }
 </script>

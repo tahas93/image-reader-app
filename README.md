@@ -9,11 +9,11 @@ First project of building a tool to extract text from an image in VueJs framewor
 ### Languages and Tools
 
 - Vue Js 3
-- Tesseract JS
 - Vite Js
-- VS Code editor
+- Tesseract JS
 - Vue-ChartJS
 - ChartJs
+- VS Code editor
 
 ### Clone This Repo
 
